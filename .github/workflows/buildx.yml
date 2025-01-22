@@ -81,10 +81,11 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
 
       - name: Attest
+        if: github.event_name != 'pull_request'
         uses: actions/attest-build-provenance@v2
         id: attest
         with:
           subject-name: ghcr.io/${{ github.repository }}
-          subject-digest: ${{ steps.push.outputs.digest }}
+          subject-digest: ${{ steps.build.outputs.digest }}
           push-to-registry: true
 
