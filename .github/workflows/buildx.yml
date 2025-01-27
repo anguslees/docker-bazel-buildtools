@@ -81,7 +81,7 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
 
       - name: Attest
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && !startsWith(github.ref, 'refs/heads/renovate/')
         uses: actions/attest-build-provenance@v2
         id: attest
         with:
