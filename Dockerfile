@@ -5,7 +5,7 @@ ARG TARGETARCH
 ARG TARGETVARIANT
 
 # renovate: datasource=github-releases depName=bazelbuild/buildtools
-ARG BUILDTOOLS_VERSION=8.0.1
+ARG BUILDTOOLS_VERSION=8.0.2
 
 RUN mkdir /out
 RUN curl -L -o /out/buildifier https://github.com/bazelbuild/buildtools/releases/download/v$BUILDTOOLS_VERSION/buildifier-$TARGETOS-$TARGETARCH
