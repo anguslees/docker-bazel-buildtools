@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM cgr.dev/chainguard/bash@sha256:bc467cf61302ee642ddd3fe7d10d68b2dc94048be4c9e4f398415c98e5f4282d AS fetcher
+FROM --platform=$BUILDPLATFORM cgr.dev/chainguard/bash@sha256:8d9119f064c7ab9b39845f4943bb52c103a8e21777ea9251e7bf4a31e4413169 AS fetcher
 
 ARG TARGETOS
 ARG TARGETARCH
@@ -14,7 +14,7 @@ RUN curl -L -o /out/unused_deps https://github.com/bazelbuild/buildtools/release
 
 RUN chmod a+x /out/*
 
-FROM cgr.dev/chainguard/bash@sha256:bc467cf61302ee642ddd3fe7d10d68b2dc94048be4c9e4f398415c98e5f4282d
+FROM cgr.dev/chainguard/bash@sha256:8d9119f064c7ab9b39845f4943bb52c103a8e21777ea9251e7bf4a31e4413169
 
 COPY --from=fetcher /out/* /usr/local/bin/
 ENTRYPOINT []
